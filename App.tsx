@@ -1,11 +1,13 @@
-import 'react-native-gesture-handler';
+// ⚠️ Important: `@walletconnect/react-native-compat` needs to be imported before other `wagmi` packages.
+// This is because Web3Modal has a polyfill necessary for the TextEncoder API.
 import '@walletconnect/react-native-compat';
+import 'react-native-gesture-handler';
 import React from 'react';
 import { WagmiConfig } from 'wagmi';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { Web3Modal, wagmiConfig } from './src/web3modal';
-import HomeNavigator from './src/navigation/HomeNavigator';
+import RootNavigator from './src/navigation/RootNavigator';
 import darkTheme from './src/theme';
 
 export default function App() {
@@ -15,9 +17,7 @@ export default function App() {
       <Web3Modal />
 
       <NavigationContainer theme={darkTheme}>
-        <HomeNavigator />
-        {/* TODO: WEBCOMPONENTS DONT WORK INSIDE REACT NAVIGATION CONTAINER? */}
-        <w3m-button label="Outside HomeScreen" />
+        <RootNavigator />
       </NavigationContainer>
     </WagmiConfig>
   );

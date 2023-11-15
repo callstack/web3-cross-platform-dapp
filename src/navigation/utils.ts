@@ -7,6 +7,21 @@ export function getIconForRoute(routeName: string) {
     case 'Home':
       iconName = 'home';
       break;
+    case 'Explore':
+      iconName = 'search';
+      break;
+    case 'Notifications':
+      iconName = 'bell';
+      break;
+    case 'Messages':
+      iconName = 'mail';
+      break;
+    case 'Bookmarks':
+      iconName = 'bookmark';
+      break;
+    case 'Profile':
+      iconName = 'person';
+      break;
     default:
       break;
   }

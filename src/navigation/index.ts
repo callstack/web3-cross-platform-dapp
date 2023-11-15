@@ -3,6 +3,11 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 export type ParamList = {
   Home: undefined;
+  Explore: undefined;
+  Notifications: undefined;
+  Messages: undefined;
+  Bookmarks: undefined;
+  Profile: undefined;
 };
 
 export const RootTab = createBottomTabNavigator<ParamList>();
