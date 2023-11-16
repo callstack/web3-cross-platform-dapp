@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Octicons from '@expo/vector-icons/Octicons';
-import { useTheme } from '@react-navigation/native';
+import { theme } from '../theme';
 import { getIconForRoute } from './utils';
 import { ParamList } from './index';
 
@@ -11,14 +11,12 @@ type NavIconProps = {
 };
 
 function NavIcon({ screenName, focused }: NavIconProps) {
-  const { colors } = useTheme();
-
   return (
     <View style={styles.container}>
       <Octicons
         name={getIconForRoute(screenName)}
         size={20}
-        color={focused ? colors.primary : colors.border}
+        color={focused ? theme.colors.primary : theme.colors.text}
       />
     </View>
   );

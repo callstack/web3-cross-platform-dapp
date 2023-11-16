@@ -8,7 +8,7 @@ import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { Web3Modal, wagmiConfig } from './src/web3modal';
 import RootNavigator from './src/navigation/RootNavigator';
-import darkTheme from './src/theme';
+import { reactNavigationTheme } from './src/theme';
 
 export default function App() {
   return (
@@ -16,7 +16,7 @@ export default function App() {
       <StatusBar style="auto" />
       <Web3Modal />
 
-      <NavigationContainer theme={darkTheme}>
+      <NavigationContainer theme={reactNavigationTheme}>
         <RootNavigator />
       </NavigationContainer>
     </WagmiConfig>

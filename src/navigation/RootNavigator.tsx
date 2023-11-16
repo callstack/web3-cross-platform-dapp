@@ -1,6 +1,11 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import HomeScreen from '../features/home/HomeScreen';
+import ExploreScreen from '../features/explore/ExploreScreen';
+import NotificationsScreen from '../features/notifications/NotificationsScreen';
+import MessagesScreen from '../features/messages/MessagesScreen';
+import BookmarksScreen from '../features/bookmarks/BookmarksScreen';
+import ProfileScreen from '../features/profile/ProfileScreen';
 import NavIcon from './NavIcon';
 import { ParamList, RootDrawer, RootTab } from './index';
 
@@ -14,23 +19,23 @@ const screens: {
   },
   {
     name: 'Explore',
-    component: () => null,
+    component: ExploreScreen,
   },
   {
     name: 'Notifications',
-    component: () => null,
+    component: NotificationsScreen,
   },
   {
     name: 'Messages',
-    component: () => null,
+    component: MessagesScreen,
   },
   {
     name: 'Bookmarks',
-    component: () => null,
+    component: BookmarksScreen,
   },
   {
     name: 'Profile',
-    component: () => null,
+    component: ProfileScreen,
   },
 ];
 
@@ -66,6 +71,7 @@ const RootNavigator = () => {
           name={screen.name}
           component={screen.component}
           options={{
+            tabBarLabel: () => null,
             tabBarIcon: ({ focused }) => (
               <NavIcon screenName={screen.name} focused={focused} />
             ),

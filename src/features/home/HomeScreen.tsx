@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Button, StyleSheet, Text, View } from 'react-native';
+import { Alert, Button, StyleSheet, View } from 'react-native';
 import {
   useAccount,
   useBalance,
@@ -14,6 +14,7 @@ import {
 import { parseEther } from 'viem';
 import { polygonMumbai } from 'wagmi/chains';
 import { W3mButton } from '../../web3modal';
+import Text from '../../components/Text';
 
 export default function HomeScreen() {
   const { chain } = useNetwork();
@@ -89,6 +90,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 20,
   },
