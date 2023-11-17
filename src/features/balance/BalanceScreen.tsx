@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Text from '../../components/Text';
 
-export default function ExploreScreen() {
+export default function BalanceScreen() {
   return (
     <View style={styles.container}>
       <Text>Explore</Text>

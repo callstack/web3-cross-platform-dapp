@@ -5,10 +5,10 @@ export function getIconForRoute(routeName: string) {
 
   switch (routeName) {
     case 'Home':
-      iconName = 'home';
+      iconName = 'apps';
       break;
-    case 'Explore':
-      iconName = 'search';
+    case 'Balance':
+      iconName = 'ruby';
       break;
     case 'Notifications':
       iconName = 'bell';
