@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   w3mButton: {
     marginTop: 20,
-    marginLeft: 10,
+    marginLeft: 18,
   },
 });
 

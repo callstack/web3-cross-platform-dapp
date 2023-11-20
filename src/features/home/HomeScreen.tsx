@@ -2,20 +2,22 @@ import React from 'react';
 import { FlatList, Platform, StyleSheet, View } from 'react-native';
 import { useAccount } from 'wagmi';
 import Text from '../../components/Text';
-import { useNFTsForAddress } from '../../services/zora';
+import { useNFTsForAddress } from '../../services/alchemy';
 import NftListItem from '../../components/NftListItem';
 import Separator from '../../components/Separator';
+import ListEmptyComponent from '../../components/ListEmptyComponent';
 
 const NUM_COLUMNS = Platform.OS === 'web' ? 4 : 1;
 
 export default function HomeScreen() {
   const { address, isConnected } = useAccount();
 
-  let nfts = useNFTsForAddress(address);
-  console.log('nfts', nfts);
+  let { nfts, isLoading } = useNFTsForAddress('thiagobrez.eth');
 
   const missingItemsToFillRow =
-    nfts.length % 2 > 0 ? NUM_COLUMNS - (nfts.length % NUM_COLUMNS) : 0;
+    nfts.length % NUM_COLUMNS === 0
+      ? 0
+      : NUM_COLUMNS - (nfts.length % NUM_COLUMNS);
 
   if (nfts.length > 0 && missingItemsToFillRow > 0) {
     nfts = [...nfts, ...Array(missingItemsToFillRow).fill({})];
@@ -38,12 +40,26 @@ export default function HomeScreen() {
           data={nfts}
           numColumns={NUM_COLUMNS}
           renderItem={renderItem}
-          keyExtractor={item => `${item.collectionAddress}-${item.tokenId}`}
+          keyExtractor={item => `${item.contract?.address}-${item.tokenId}`}
+          contentContainerStyle={styles.contentContainerStyle}
+          columnWrapperStyle={
+            NUM_COLUMNS > 1 ? styles.columnWrapper : undefined
+          }
           ItemSeparatorComponent={Separator}
-          columnWrapperStyle={styles.columnWrapper}
+          ListEmptyComponent={
+            <ListEmptyComponent
+              text={
+                isLoading
+                  ? 'Loading...'
+                  : `No NFTs were found for address: ${address}`
+              }
+            />
+          }
         />
       ) : (
-        <Text>Connect your wallet to display NFTs</Text>
+        <Text style={styles.notConnectedText}>
+          Connect wallet to display NFTs
+        </Text>
       )}
     </View>
   );
@@ -55,11 +71,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: 20,
   },
+  contentContainerStyle: {
+    paddingVertical: 20,
+  },
   columnWrapper: {
     columnGap: 20,
   },
   dummyItem: {
     flex: 1 / NUM_COLUMNS,
     borderWidth: 1,
+  },
+  notConnectedText: {
+    textAlign: 'center',
   },
 });

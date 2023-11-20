@@ -67,7 +67,10 @@ const RootNavigator = () => {
   }
 
   return (
-    <RootTab.Navigator screenOptions={{ header: TabHeader }}>
+    <RootTab.Navigator
+      screenOptions={{
+        header: () => <TabHeader />,
+      }}>
       {screens.map(screen => (
         <RootTab.Screen
           key={screen.name}
