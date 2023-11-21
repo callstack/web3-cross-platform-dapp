@@ -1,87 +1,44 @@
 import React from 'react';
-import { FlatList, Platform, StyleSheet, View } from 'react-native';
-import { useAccount } from 'wagmi';
+import { Button, StyleSheet, View } from 'react-native';
+import { useAccount, useSignMessage } from 'wagmi';
 import Text from '../../components/Text';
-import { useNFTsForAddress } from '../../services/alchemy';
-import NftListItem from '../../components/NftListItem';
-import Separator from '../../components/Separator';
-import ListEmptyComponent from '../../components/ListEmptyComponent';
-
-const NUM_COLUMNS = Platform.OS === 'web' ? 4 : 1;
+import { theme } from '../../theme';
+import NftList from './NftList';
 
 export default function HomeScreen() {
-  const { address, isConnected } = useAccount();
+  const { isConnected } = useAccount();
+  const { isSuccess: isSigned, signMessage } = useSignMessage({
+    message: 'Sign this message to prove you are the owner of this wallet',
+  });
 
-  let { nfts, isLoading } = useNFTsForAddress('thiagobrez.eth');
-
-  const missingItemsToFillRow =
-    nfts.length % NUM_COLUMNS === 0
-      ? 0
-      : NUM_COLUMNS - (nfts.length % NUM_COLUMNS);
-
-  if (nfts.length > 0 && missingItemsToFillRow > 0) {
-    nfts = [...nfts, ...Array(missingItemsToFillRow).fill({})];
+  if (!isConnected) {
+    return (
+      <View style={styles.container}>
+        <Text>Connect wallet to display NFTs</Text>
+      </View>
+    );
   }
 
-  const renderItem = ({ item }) => {
-    const isDummyItem = Object.keys(item).length === 0;
-
-    if (isDummyItem) {
-      return <View style={styles.dummyItem} />;
-    }
-
-    return <NftListItem nft={item} numColumns={NUM_COLUMNS} />;
-  };
-
-  return (
-    <View style={styles.container}>
-      {isConnected ? (
-        <FlatList
-          data={nfts}
-          numColumns={NUM_COLUMNS}
-          renderItem={renderItem}
-          keyExtractor={item => `${item.contract?.address}-${item.tokenId}`}
-          contentContainerStyle={styles.contentContainerStyle}
-          columnWrapperStyle={
-            NUM_COLUMNS > 1 ? styles.columnWrapper : undefined
-          }
-          ItemSeparatorComponent={Separator}
-          ListEmptyComponent={
-            <ListEmptyComponent
-              text={
-                isLoading
-                  ? 'Loading...'
-                  : `No NFTs were found for address: ${address}`
-              }
-            />
-          }
+  if (!isSigned) {
+    return (
+      <View style={styles.container}>
+        <Button
+          title="Sign Message"
+          color={theme.colors.primary}
+          onPress={() => signMessage()}
         />
-      ) : (
-        <Text style={styles.notConnectedText}>
-          Connect wallet to display NFTs
-        </Text>
-      )}
-    </View>
-  );
+      </View>
+    );
+  }
+
+  return <NftList />;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 20,
-  },
-  contentContainerStyle: {
-    paddingVertical: 20,
-  },
-  columnWrapper: {
-    columnGap: 20,
-  },
-  dummyItem: {
-    flex: 1 / NUM_COLUMNS,
-    borderWidth: 1,
-  },
-  notConnectedText: {
-    textAlign: 'center',
   },
 });

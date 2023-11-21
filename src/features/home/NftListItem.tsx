@@ -1,26 +1,28 @@
 import React from 'react';
-import { Image, Linking, Pressable, StyleSheet, View } from 'react-native';
+import { Linking, Pressable, StyleSheet, View, ViewStyle } from 'react-native';
 import { Nft } from 'alchemy-sdk';
-import Text from '../Text';
+import { Image } from 'expo-image';
+import Text from '../../components/Text';
 import { theme } from '../../theme';
+import { OPENSEA_BASE_URL } from '../../constants';
 
 type NftListItemProps = {
   nft: Nft;
-  numColumns: number;
+  style: ViewStyle;
 };
 
-function NftListItem({ nft, numColumns }: NftListItemProps) {
-  const openNft = () => {
+function NftListItem({ nft, style }: NftListItemProps) {
+  const openMarketplace = () => {
     void Linking.openURL(
-      `https://opensea.io/assets/ethereum/${nft.contract.address}/${nft.tokenId}`,
+      `${OPENSEA_BASE_URL}/${nft.contract.address}/${nft.tokenId}`,
     );
   };
 
   return (
     <Pressable
       accessibilityRole="button"
-      onPress={openNft}
-      style={[{ flex: 1 / numColumns }, styles.container]}>
+      onPress={openMarketplace}
+      style={[styles.container, style]}>
       {/* react-native-web does not export TS typings for the `hovered` argument */}
       {/* @ts-expect-error */}
       {({ hovered, pressed }) => (

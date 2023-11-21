@@ -11,8 +11,7 @@ This repository showcases how to build a modern cross-platform dApp with [Expo](
 
 ## How to run
 
-- Rename `.env.example` to `.env` and fill in your Wallet Connect Cloud project ID
-- In `src/pages/HomePage.tsx`, fill in an Ethereum wallet address, so you can receive test MATIC in the Polygon Mumbai testnet
+- Rename `.env.example` to `.env` and fill in your Wallet Connect Cloud project ID, and Alchemy API key
 - `npm start`
 - Open Expo Go app in your smartphone
 - If your smartphone is in the same network as your computer, the local dev server should appear as the first option. If it doesn't, use the app to scan the QR Code presented in the terminal
