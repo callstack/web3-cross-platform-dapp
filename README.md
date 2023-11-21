@@ -2,6 +2,8 @@
 
 This repository showcases how to build a modern cross-platform dApp with [Expo](https://expo.dev), [wagmi](https://wagmi.sh) and [WalletConnect's Web3Modal](https://docs.walletconnect.com/web3modal/about)
 
+![demo.gif](demo.gif)
+
 ## Requirements
 
 - [Expo environment setup](https://docs.expo.dev/get-started/installation/#requirements) (Node.js, Git, Watchman)
