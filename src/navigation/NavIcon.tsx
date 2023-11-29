@@ -2,13 +2,33 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Octicons from '@expo/vector-icons/Octicons';
 import { theme } from '../theme';
-import { getIconForRoute } from './utils';
 import { ParamList } from './index';
 
 type NavIconProps = {
   screenName: keyof ParamList;
   focused: boolean;
 };
+
+export function getIconForRoute(
+  routeName: string,
+): keyof typeof Octicons.glyphMap {
+  switch (routeName) {
+    case 'Home':
+      return 'apps';
+    case 'Balance':
+      return 'ruby';
+    case 'Notifications':
+      return 'bell';
+    case 'Messages':
+      return 'mail';
+    case 'Bookmarks':
+      return 'bookmark';
+    case 'Profile':
+      return 'person';
+    default:
+      return 'question';
+  }
+}
 
 function NavIcon({ screenName, focused }: NavIconProps) {
   return (

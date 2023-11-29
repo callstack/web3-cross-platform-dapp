@@ -9,12 +9,9 @@ import ProfileScreen from '../features/profile/ProfileScreen';
 import NavIcon from './NavIcon';
 import DrawerContent from './DrawerContent';
 import TabHeader from './TabHeader';
-import { ParamList, RootDrawer, RootTab } from './index';
+import { RootDrawer, RootTab } from './index';
 
-const screens: {
-  name: keyof ParamList;
-  component: () => React.JSX.Element;
-}[] = [
+const screens = [
   {
     name: 'Home',
     component: HomeScreen,
@@ -39,7 +36,7 @@ const screens: {
     name: 'Profile',
     component: ProfileScreen,
   },
-];
+] as const;
 
 const RootNavigator = () => {
   if (Platform.OS === 'web') {

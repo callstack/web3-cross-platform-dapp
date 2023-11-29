@@ -1,6 +1,6 @@
 # web3-cross-platform-dapp
 
-This repository showcases how to build a modern cross-platform dApp with [Expo](https://expo.dev), [wagmi](https://wagmi.sh) and [WalletConnect's Web3Modal](https://docs.walletconnect.com/web3modal/about)
+This repository showcases how to build a modern cross-platform (web / iOS / Android) dApp with [Expo](https://expo.dev), [React Native for Web](https://necolas.github.io/react-native-web/), [wagmi](https://wagmi.sh) and [WalletConnect's Web3Modal](https://docs.walletconnect.com/web3modal/about)
 
 ![demo.gif](demo.gif)
 
@@ -8,6 +8,7 @@ This repository showcases how to build a modern cross-platform dApp with [Expo](
 
 - [Expo environment setup](https://docs.expo.dev/get-started/installation/#requirements) (Node.js, Git, Watchman)
 - A [Wallet Connect Cloud](https://cloud.walletconnect.com/sign-in) project ID
+- An [Alchemy](https://www.alchemy.com/) API key
 - Expo Go app installed in your smartphone
 - One or more web3 wallets installed in your smartphone (e.g. MetaMask, Rainbow Wallet, Trust Wallet, etc)
 

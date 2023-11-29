@@ -6,7 +6,7 @@ const alchemy = new Alchemy({
   network: Network.ETH_MAINNET,
 });
 
-export function useNFTsForAddress(address: string) {
+export function useNftsForAddress(address: string) {
   const [isLoading, setIsLoading] = useState(true);
   const [nfts, setNfts] = useState<Nft[]>([]);
 

@@ -23,8 +23,7 @@ function NftListItem({ nft, style }: NftListItemProps) {
       accessibilityRole="button"
       onPress={openMarketplace}
       style={[styles.container, style]}>
-      {/* react-native-web does not export TS typings for the `hovered` argument */}
-      {/* @ts-expect-error */}
+      {/* @ts-expect-error: react-native-web does not export TS typings for the `hovered` argument */}
       {({ hovered, pressed }) => (
         <View style={(hovered || pressed) && styles.pressed}>
           <Image

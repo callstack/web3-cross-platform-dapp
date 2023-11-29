@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, Platform, StyleSheet, View } from 'react-native';
 import { useAccount } from 'wagmi';
 import Separator from '../../components/Separator';
-import { useNFTsForAddress } from '../../services/alchemy';
+import { useNftsForAddress } from '../../services/alchemy';
 import Text from '../../components/Text';
 import NftListItem from './NftListItem';
 
@@ -10,9 +10,12 @@ const NUM_COLUMNS = Platform.OS === 'web' ? 4 : 1;
 
 function NftList() {
   const { address } = useAccount();
-  let { nfts, isLoading } = useNFTsForAddress(address);
+  let { nfts, isLoading } = useNftsForAddress(address);
 
   const renderItem = ({ item }) => {
+    // Dynamically calculating width to avoid items having different widths
+    // if the last row is not full. Needed because the columns are generated
+    // by the FlatList itself.
     const width: `${number}%` =
       NUM_COLUMNS > 1 ? `${90 / NUM_COLUMNS}%` : '100%';
 

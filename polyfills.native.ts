@@ -1,5 +1,5 @@
 // ⚠️ Important: `@walletconnect/react-native-compat` needs to be imported before other `wagmi` packages.
-// This is because Web3Modal has a polyfill necessary for the TextEncoder API.
+// This is because it applies a polyfill necessary for the TextEncoder API.
 import '@walletconnect/react-native-compat';
 
 // Polyfills for Alchemy SDK
