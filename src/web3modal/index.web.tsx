@@ -16,7 +16,7 @@ createWeb3Modal({
   wagmiConfig,
 });
 
-// Standardize the web button component to be used the same as the native button
+// On web, export W3mButton as the globally-available web component
 const W3mButton = () => <w3m-button />;
 
 // On web, modal doesn't need to be rendered because it's a globally-available web component
