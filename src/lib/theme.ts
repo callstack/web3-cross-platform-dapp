@@ -17,6 +17,7 @@ const theme = {
   colors: {
     ...reactNavigationTheme.colors,
     disabled: 'rgb(52,50,50)',
+    danger: 'rgb(255, 69, 58)',
   },
 };
 

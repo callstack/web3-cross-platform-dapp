@@ -17,7 +17,7 @@ createWeb3Modal({
 });
 
 // Standardize the web button component to be used the same as the native button
-const W3mButton = () => <w3m-button />;
+const W3mButton = props => <w3m-button {...props} />;
 
 // On web, modal doesn't need to be rendered because it's a globally-available web component
 const Web3Modal = () => null;

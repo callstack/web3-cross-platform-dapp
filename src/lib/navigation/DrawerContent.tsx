@@ -15,7 +15,7 @@ function CustomDrawerContent(props) {
       </View>
       <DrawerItemList {...props} />
       <View style={styles.w3mButton}>
-        <W3mButton />
+        <W3mButton balance="hide" />
       </View>
     </DrawerContentScrollView>
   );
