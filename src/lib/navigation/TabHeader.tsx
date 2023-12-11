@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { W3mButton } from '../web3modal';
-import Logo from '../components/Logo';
+import Logo from '../../components/Logo';
 
 function TabHeader() {
   const insets = useSafeAreaInsets();

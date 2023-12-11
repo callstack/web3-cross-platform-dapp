@@ -1,10 +1,10 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { useSession } from '@lens-protocol/react-native';
-import HomeScreen from '../features/home/HomeScreen';
-import BalanceScreen from '../features/balance/BalanceScreen';
-import ProfileScreen from '../features/profile/ProfileScreen';
-import SignInScreen from '../features/sign-in/SignInScreen';
+import HomeScreen from '../../features/home/HomeScreen';
+import BalanceScreen from '../../features/balance/BalanceScreen';
+import ProfileScreen from '../../features/profile/ProfileScreen';
+import SignInScreen from '../../features/sign-in/SignInScreen';
 import NavIcon from './NavIcon';
 import DrawerContent from './DrawerContent';
 import TabHeader from './TabHeader';

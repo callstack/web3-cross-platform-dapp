@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Image } from 'expo-image';
 import Text from '../../components/Text';
-import { theme } from '../../theme';
+import { theme } from '../../lib/theme';
 
 type BalanceItemProps = {
   balance: string;

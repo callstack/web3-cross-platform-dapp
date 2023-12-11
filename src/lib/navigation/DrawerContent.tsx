@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/drawer';
 import { StyleSheet, View } from 'react-native';
 import { W3mButton } from '../web3modal';
-import Logo from '../components/Logo';
+import Logo from '../../components/Logo';
 
 function CustomDrawerContent(props) {
   return (

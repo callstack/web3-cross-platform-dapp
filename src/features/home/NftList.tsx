@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, Platform, StyleSheet, View } from 'react-native';
 import { useAccount } from 'wagmi';
 import Separator from '../../components/Separator';
-import { useNftsForAddress } from '../../services/alchemy';
+import { useNftsForAddress } from '../../lib/alchemy';
 import Text from '../../components/Text';
 import NftListItem from './NftListItem';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text as RNText, TextProps as RNTextProps } from 'react-native';
-import { theme } from '../../theme';
+import { theme } from '../../lib/theme';
 
 type TextProps = RNTextProps & {
   disabled?: boolean;

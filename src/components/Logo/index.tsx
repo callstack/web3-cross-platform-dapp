@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import Text from '../Text';
-import { theme } from '../../theme';
+import { theme } from '../../lib/theme';
 
 function Logo() {
   return <Text style={styles.logo}>Lenspo</Text>;

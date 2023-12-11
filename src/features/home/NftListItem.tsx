@@ -3,7 +3,7 @@ import { Linking, Pressable, StyleSheet, View, ViewStyle } from 'react-native';
 import { Nft } from 'alchemy-sdk';
 import { Image } from 'expo-image';
 import Text from '../../components/Text';
-import { theme } from '../../theme';
+import { theme } from '../../lib/theme';
 import { OPENSEA_BASE_URL } from '../../constants';
 
 type NftListItemProps = {
