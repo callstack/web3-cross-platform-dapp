@@ -4,7 +4,7 @@ const reactNavigationTheme = {
   ...DarkTheme,
   colors: {
     ...DarkTheme.colors,
-    primary: 'rgb(150,122,255)',
+    primary: 'rgb(122,255,124)',
     background: 'rgb(0, 0, 0)',
     card: 'rgb(0, 0, 0)',
     text: 'rgb(255, 255, 255)',

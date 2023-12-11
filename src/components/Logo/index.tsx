@@ -4,7 +4,7 @@ import Text from '../Text';
 import { theme } from '../../theme';
 
 function Logo() {
-  return <Text style={styles.logo}>Native3</Text>;
+  return <Text style={styles.logo}>Lenspo</Text>;
 }
 
 const styles = StyleSheet.create({

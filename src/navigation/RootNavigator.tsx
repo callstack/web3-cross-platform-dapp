@@ -1,11 +1,10 @@
 import React from 'react';
 import { Platform } from 'react-native';
+import { useSession } from '@lens-protocol/react-native';
 import HomeScreen from '../features/home/HomeScreen';
 import BalanceScreen from '../features/balance/BalanceScreen';
-import NotificationsScreen from '../features/notifications/NotificationsScreen';
-import MessagesScreen from '../features/messages/MessagesScreen';
-import BookmarksScreen from '../features/bookmarks/BookmarksScreen';
 import ProfileScreen from '../features/profile/ProfileScreen';
+import SignInScreen from '../features/sign-in/SignInScreen';
 import NavIcon from './NavIcon';
 import DrawerContent from './DrawerContent';
 import TabHeader from './TabHeader';
@@ -21,24 +20,14 @@ const screens = [
     component: BalanceScreen,
   },
   {
-    name: 'Notifications',
-    component: NotificationsScreen,
-  },
-  {
-    name: 'Messages',
-    component: MessagesScreen,
-  },
-  {
-    name: 'Bookmarks',
-    component: BookmarksScreen,
-  },
-  {
     name: 'Profile',
     component: ProfileScreen,
   },
 ] as const;
 
 const RootNavigator = () => {
+  const { data: session } = useSession();
+
   if (Platform.OS === 'web') {
     return (
       <RootDrawer.Navigator
@@ -51,7 +40,7 @@ const RootNavigator = () => {
           <RootDrawer.Screen
             key={screen.name}
             name={screen.name}
-            component={screen.component}
+            component={session?.authenticated ? screen.component : SignInScreen}
             options={{
               drawerIcon: ({ focused }) => (
                 <NavIcon screenName={screen.name} focused={focused} />
@@ -72,7 +61,7 @@ const RootNavigator = () => {
         <RootTab.Screen
           key={screen.name}
           name={screen.name}
-          component={screen.component}
+          component={session?.authenticated ? screen.component : SignInScreen}
           options={{
             tabBarLabel: () => null,
             tabBarIcon: ({ focused }) => (
