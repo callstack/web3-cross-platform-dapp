@@ -2,6 +2,7 @@ import React from 'react';
 import { useLogin, useLazyProfile } from '@lens-protocol/react-native';
 import { Button } from 'react-native';
 import { useAccount } from 'wagmi';
+import { theme } from '../../lib/theme';
 
 export function LensButton() {
   const { address } = useAccount();
@@ -33,6 +34,7 @@ export function LensButton() {
 
   return (
     <Button
+      color={theme.colors.primary}
       disabled={loginLoading}
       onPress={onLoginPress}
       title="Sign in with Lens"

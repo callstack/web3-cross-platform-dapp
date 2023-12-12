@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
     "@lens-protocol/react-native": "^0.1.0-alpha.2",
+    "@lens-protocol/react-web": "^2.0.0-alpha.25",
     "@lens-protocol/wagmi": "^3.0.0-alpha.22",
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-native-community/netinfo": "9.3.10",
