@@ -3,7 +3,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 export type ParamList = {
   Home: undefined;
-  Balance: undefined;
+  Notifications: undefined;
+  Messages: undefined;
+  Bookmarks: undefined;
   Profile: undefined;
 };
 

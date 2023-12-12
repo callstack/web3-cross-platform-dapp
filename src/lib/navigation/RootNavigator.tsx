@@ -2,9 +2,11 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { useSession } from '@lens-protocol/react-native';
 import HomeScreen from '../../features/home/HomeScreen';
-import BalanceScreen from '../../features/balance/BalanceScreen';
 import ProfileScreen from '../../features/profile/ProfileScreen';
 import SignInScreen from '../../features/sign-in/SignInScreen';
+import NotificationsScreen from '../../features/notifications/NotificationsScreen';
+import MessagesScreen from '../../features/messages/MessagesScreen';
+import BookmarksScreen from '../../features/bookmarks/BookmarksScreen';
 import NavIcon from './NavIcon';
 import DrawerContent from './DrawerContent';
 import TabHeader from './TabHeader';
@@ -16,8 +18,16 @@ const screens = [
     component: HomeScreen,
   },
   {
-    name: 'Balance',
-    component: BalanceScreen,
+    name: 'Notifications',
+    component: NotificationsScreen,
+  },
+  {
+    name: 'Messages',
+    component: MessagesScreen,
+  },
+  {
+    name: 'Bookmarks',
+    component: BookmarksScreen,
   },
   {
     name: 'Profile',

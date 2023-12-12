@@ -1,8 +1,4 @@
-import {
-  LensProvider,
-  LensConfig,
-  development,
-} from '@lens-protocol/react-web';
+import { LensConfig, development } from '@lens-protocol/react-web';
 import { bindings as wagmiBindings } from '@lens-protocol/wagmi';
 
 const lensConfig: LensConfig = {
@@ -10,4 +6,5 @@ const lensConfig: LensConfig = {
   environment: development,
 };
 
-export { LensProvider, lensConfig };
+export * from '@lens-protocol/react-web';
+export { lensConfig };

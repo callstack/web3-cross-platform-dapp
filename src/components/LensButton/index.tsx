@@ -1,29 +1,21 @@
 import React from 'react';
-import { useLogin, useLazyProfile } from '@lens-protocol/react-native';
-import { Button } from 'react-native';
+import { useLogin } from '@lens-protocol/react-native';
 import { useAccount } from 'wagmi';
-import { theme } from '../../lib/theme';
+import { ProfileId } from '../../lib/lens-sdk';
+import Button from '../Button';
 
-export function LensButton() {
+type LensButtonProps = {
+  profileId: ProfileId;
+};
+
+export function LensButton({ profileId }: LensButtonProps) {
   const { address } = useAccount();
-  const { execute: fetchProfile } = useLazyProfile();
   const { execute: login, loading: loginLoading } = useLogin();
 
-  const onLoginPress = async () => {
-    // TODO: fetch profile from wallet
-
-    const profileResult = await fetchProfile({ forProfileId: '0x0214' });
-
-    if (profileResult.isFailure()) {
-      console.log('fetchProfile error:', profileResult.error.message);
-      return;
-    }
-
-    const profile = profileResult.value;
-
+  const onLogin = async () => {
     const loginResult = await login({
       address: address,
-      profileId: profile.id,
+      profileId,
     });
 
     if (loginResult.isFailure()) {
@@ -33,11 +25,6 @@ export function LensButton() {
   };
 
   return (
-    <Button
-      color={theme.colors.primary}
-      disabled={loginLoading}
-      onPress={onLoginPress}
-      title="Sign in with Lens"
-    />
+    <Button title="Sign in  🌱" loading={loginLoading} onPress={onLogin} />
   );
 }
