@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 export type ParamList = {
+  SignIn: undefined;
   Home: undefined;
   Notifications: undefined;
   Messages: undefined;

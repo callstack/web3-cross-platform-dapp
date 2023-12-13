@@ -46,18 +46,31 @@ const RootNavigator = () => {
           header: () => null,
           drawerType: 'permanent',
         }}>
-        {screens.map(screen => (
+        {session?.authenticated ? (
+          screens.map(screen => (
+            <RootDrawer.Screen
+              key={screen.name}
+              name={screen.name}
+              component={screen.component}
+              options={{
+                drawerIcon: ({ focused }) => (
+                  <NavIcon screenName={screen.name} focused={focused} />
+                ),
+              }}
+            />
+          ))
+        ) : (
           <RootDrawer.Screen
-            key={screen.name}
-            name={screen.name}
-            component={session?.authenticated ? screen.component : SignInScreen}
+            name="SignIn"
+            component={SignInScreen}
             options={{
+              title: 'Sign In',
               drawerIcon: ({ focused }) => (
-                <NavIcon screenName={screen.name} focused={focused} />
+                <NavIcon screenName="SignIn" focused={focused} />
               ),
             }}
           />
-        ))}
+        )}
       </RootDrawer.Navigator>
     );
   }
@@ -67,19 +80,32 @@ const RootNavigator = () => {
       screenOptions={{
         header: () => <TabHeader />,
       }}>
-      {screens.map(screen => (
+      {session?.authenticated ? (
+        screens.map(screen => (
+          <RootTab.Screen
+            key={screen.name}
+            name={screen.name}
+            component={session?.authenticated ? screen.component : SignInScreen}
+            options={{
+              tabBarLabel: () => null,
+              tabBarIcon: ({ focused }) => (
+                <NavIcon screenName={screen.name} focused={focused} />
+              ),
+            }}
+          />
+        ))
+      ) : (
         <RootTab.Screen
-          key={screen.name}
-          name={screen.name}
-          component={session?.authenticated ? screen.component : SignInScreen}
+          name="SignIn"
+          component={SignInScreen}
           options={{
-            tabBarLabel: () => null,
+            title: 'Sign In',
             tabBarIcon: ({ focused }) => (
-              <NavIcon screenName={screen.name} focused={focused} />
+              <NavIcon screenName="SignIn" focused={focused} />
             ),
           }}
         />
-      ))}
+      )}
     </RootTab.Navigator>
   );
 };

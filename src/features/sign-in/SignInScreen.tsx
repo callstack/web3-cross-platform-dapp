@@ -12,11 +12,10 @@ export default function SignInScreen() {
     for: address,
   });
 
+  // TODO: useLastLoggedInProfile seems to not be updating right after logout
   const { data: lastLoggedInProfile } = useLastLoggedInProfile({
     for: address,
   });
-
-  console.log('lastLoggedInProfile', lastLoggedInProfile);
 
   const sortedProfiles = [...profiles].sort((a, b) => {
     if (a.id === lastLoggedInProfile?.id) {
@@ -42,7 +41,7 @@ export default function SignInScreen() {
           ))}
         </>
       ) : (
-        <Text>Connect wallet to start</Text>
+        <Text>Connect wallet to sign in</Text>
       )}
     </View>
   );
