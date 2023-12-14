@@ -1,15 +1,16 @@
 import React from 'react';
-import { Image, ImageBackground, StyleSheet, View } from 'react-native';
+import { ImageBackground, StyleSheet, View } from 'react-native';
+import { Image } from 'expo-image';
+import Text from '../../components/Text';
+import Button from '../../components/Button';
+import SignInScreen from '../sign-in/SignInScreen';
+import { theme } from '../../lib/theme';
 import {
   ProfilePictureSet,
   SessionType,
   useLogout,
   useSession,
-} from '@lens-protocol/react-native';
-import Text from '../../components/Text';
-import Button from '../../components/Button';
-import SignInScreen from '../sign-in/SignInScreen';
-import { theme } from '../../lib/theme';
+} from '../../lib/lens-sdk';
 
 export default function ProfileScreen() {
   const { data: session } = useSession();

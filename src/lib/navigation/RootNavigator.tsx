@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { useSession } from '@lens-protocol/react-native';
+import { SessionType, useSession } from '@lens-protocol/react-native';
 import HomeScreen from '../../features/home/HomeScreen';
 import ProfileScreen from '../../features/profile/ProfileScreen';
 import SignInScreen from '../../features/sign-in/SignInScreen';
@@ -38,6 +38,9 @@ const screens = [
 const RootNavigator = () => {
   const { data: session } = useSession();
 
+  const authenticated =
+    session?.authenticated && session?.type === SessionType.WithProfile;
+
   if (Platform.OS === 'web') {
     return (
       <RootDrawer.Navigator
@@ -46,7 +49,7 @@ const RootNavigator = () => {
           header: () => null,
           drawerType: 'permanent',
         }}>
-        {session?.authenticated ? (
+        {authenticated ? (
           screens.map(screen => (
             <RootDrawer.Screen
               key={screen.name}
@@ -80,7 +83,7 @@ const RootNavigator = () => {
       screenOptions={{
         header: () => <TabHeader />,
       }}>
-      {session?.authenticated ? (
+      {authenticated ? (
         screens.map(screen => (
           <RootTab.Screen
             key={screen.name}

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Image, ImageBackground, StyleSheet, View } from 'react-native';
+import { ImageBackground, StyleSheet, View } from 'react-native';
+import { Image } from 'expo-image';
+import Octicons from '@expo/vector-icons/Octicons';
 import Text from '../Text';
 import { Profile, ProfilePictureSet } from '../../lib/lens-sdk';
 import { LensButton } from '../LensButton';
@@ -39,7 +41,7 @@ function ProfileCard({ profile, isLastLoggedInProfile }: ProfileCardProps) {
             />
           ) : (
             <View style={styles.avatarImage}>
-              <Text>🖼</Text>
+              <Octicons name="person" size={16} color={theme.colors.disabled} />
             </View>
           )}
           <View style={styles.textContainer}>

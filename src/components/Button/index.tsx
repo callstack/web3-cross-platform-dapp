@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.primary,
     borderRadius: 20,
     height: 40,
-    // width: 200,
     paddingVertical: 8,
     paddingHorizontal: 16,
   },

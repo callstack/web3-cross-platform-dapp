@@ -2,7 +2,7 @@
 // This is because it applies a polyfill necessary for the TextEncoder API.
 import '@walletconnect/react-native-compat';
 
-// Polyfills for Alchemy SDK
+// Polyfills for Lens SDK
 if (typeof btoa === 'undefined') {
   global.btoa = function (str) {
     return new Buffer(str, 'binary').toString('base64');

@@ -7,7 +7,7 @@ function Separator() {
 
 const styles = StyleSheet.create({
   separator: {
-    height: 20,
+    height: 12,
   },
 });
 

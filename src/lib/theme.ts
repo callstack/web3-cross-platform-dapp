@@ -16,7 +16,7 @@ const reactNavigationTheme = {
 const theme = {
   colors: {
     ...reactNavigationTheme.colors,
-    disabled: 'rgb(52,50,50)',
+    disabled: 'rgb(66,64,64)',
     danger: 'rgb(255, 69, 58)',
     overlay: 'rgba(0, 0, 0, 0.7)',
   },
