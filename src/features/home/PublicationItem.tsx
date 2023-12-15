@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import Octicons from '@expo/vector-icons/Octicons';
 import { Image } from 'expo-image';
 import Text from '../../components/Text';
@@ -67,38 +67,30 @@ function PublicationItem({ item }: PostItemProps) {
       </View>
 
       <View style={styles.reactionContainer}>
-        {/*TODO: Anything inside a Pressable or Touchable will make Expo Go crash??? */}
-        <TouchableOpacity
+        <Pressable
           accessibilityRole="button"
-          style={styles.reactionButton}
-          onPress={toggleUpvote}>
-          <Text>aaa</Text>
-        </TouchableOpacity>
-
-        {/*<Pressable*/}
-        {/*  accessibilityRole="button"*/}
-        {/*  onPress={toggleUpvote}*/}
-        {/*  //@ts-expect-error: react-native-web does not export TS typings for the `hovered` argument*/}
-        {/*  style={({ pressed, hovered }) => [*/}
-        {/*    styles.reactionButton,*/}
-        {/*    {*/}
-        {/*      backgroundColor:*/}
-        {/*        pressed || hovered ? 'rgba(255, 255, 255, 0.1)' : 'transparent',*/}
-        {/*    },*/}
-        {/*  ]}>*/}
-        {/*  /!* @ts-expect-error: react-native-web does not export TS typings for the `hovered` argument *!/*/}
-        {/*  {({ pressed, hovered }) => (*/}
-        {/*    <Octicons*/}
-        {/*      name="thumbsup"*/}
-        {/*      size={16}*/}
-        {/*      color={*/}
-        {/*        publication.operations.hasUpvoted || pressed || hovered*/}
-        {/*          ? theme.colors.primary*/}
-        {/*          : theme.colors.disabled*/}
-        {/*      }*/}
-        {/*    />*/}
-        {/*  )}*/}
-        {/*</Pressable>*/}
+          onPress={toggleUpvote}
+          //@ts-expect-error: react-native-web does not export TS typings for the `hovered` argument
+          style={({ pressed, hovered }) => [
+            styles.reactionButton,
+            {
+              backgroundColor:
+                pressed || hovered ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+            },
+          ]}>
+          {/* @ts-expect-error: react-native-web does not export TS typings for the `hovered` argument */}
+          {({ pressed, hovered }) => (
+            <Octicons
+              name="thumbsup"
+              size={16}
+              color={
+                publication.operations.hasUpvoted || pressed || hovered
+                  ? theme.colors.primary
+                  : theme.colors.disabled
+              }
+            />
+          )}
+        </Pressable>
 
         <Text
           style={{
@@ -154,7 +146,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
     marginLeft: 54,
     flexDirection: 'row',
-    alignItems: 'baseline',
+    alignItems: 'center',
     gap: 4,
   },
   reactionButton: {

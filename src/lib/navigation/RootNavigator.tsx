@@ -1,12 +1,12 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { SessionType, useSession } from '@lens-protocol/react-native';
 import HomeScreen from '../../features/home/HomeScreen';
 import ProfileScreen from '../../features/profile/ProfileScreen';
 import SignInScreen from '../../features/sign-in/SignInScreen';
 import NotificationsScreen from '../../features/notifications/NotificationsScreen';
 import MessagesScreen from '../../features/messages/MessagesScreen';
 import BookmarksScreen from '../../features/bookmarks/BookmarksScreen';
+import { useSession, SessionType } from '../lens-sdk';
 import NavIcon from './NavIcon';
 import DrawerContent from './DrawerContent';
 import TabHeader from './TabHeader';
