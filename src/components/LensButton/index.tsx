@@ -8,6 +8,11 @@ type LensButtonProps = {
   profileId: ProfileId;
 };
 
+/**
+ * Button used to sign in with Lens Protocol
+ *
+ * @param profileId Lens profile ID
+ */
 export function LensButton({ profileId }: LensButtonProps) {
   const { address } = useAccount();
   const { execute: login, loading: loginLoading } = useLogin();

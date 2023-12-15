@@ -17,8 +17,6 @@ export function getIconForRoute(
       return 'shield-lock';
     case 'Home':
       return 'apps';
-    case 'Balance':
-      return 'ruby';
     case 'Notifications':
       return 'bell';
     case 'Messages':
