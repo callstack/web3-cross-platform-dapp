@@ -11,10 +11,20 @@ This repository showcases how to build a modern cross-platform (web / iOS / Andr
 - An [Alchemy](https://www.alchemy.com/) API key
 - Expo Go app installed in your smartphone
 - One or more web3 wallets installed in your smartphone (e.g. MetaMask, Rainbow Wallet, Trust Wallet, etc)
+- One or more web3 wallets installed in your browser (e.g. MetaMask, Rainbow Wallet, Trust Wallet, etc)
 
 ## How to run
 
 - Rename `.env.example` to `.env` and fill in your Wallet Connect Cloud project ID, and Alchemy API key
-- `npm start`
+- `yarn install`
+
+### Mobile
+
+- `yarn start`
 - Open Expo Go app in your smartphone
 - If your smartphone is in the same network as your computer, the local dev server should appear as the first option. If it doesn't, use the app to scan the QR Code presented in the terminal
+
+### Web
+
+- `yarn web`
+- Open `http://localhost:19006`
