@@ -1,7 +1,6 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import HomeScreen from '../features/home/HomeScreen';
-import BalanceScreen from '../features/balance/BalanceScreen';
 import NotificationsScreen from '../features/notifications/NotificationsScreen';
 import MessagesScreen from '../features/messages/MessagesScreen';
 import BookmarksScreen from '../features/bookmarks/BookmarksScreen';
@@ -15,10 +14,6 @@ const screens = [
   {
     name: 'Home',
     component: HomeScreen,
-  },
-  {
-    name: 'Balance',
-    component: BalanceScreen,
   },
   {
     name: 'Notifications',
