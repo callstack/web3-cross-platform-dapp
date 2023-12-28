@@ -2,6 +2,9 @@
 
 This repository showcases how to build a modern cross-platform (web / iOS / Android) dApp with [Expo](https://expo.dev), [React Native for Web](https://necolas.github.io/react-native-web/), [wagmi](https://wagmi.sh) and [WalletConnect's Web3Modal](https://docs.walletconnect.com/web3modal/about)
 
+Read the article for a more detailed explanation: [Cross-Platform Web3 dApps With React Native
+](https://www.callstack.com/blog/cross-platform-web3-dapps-with-react-native)
+
 ![demo.gif](demo.gif)
 
 ## Requirements
